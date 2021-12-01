@@ -1,4 +1,4 @@
-module Day1Spec where
+module Day1Part1Spec where
 import           Day1PuzzleInput  (day1puzzleInput)
 import           Sonar            (countIncreasing)
 import           Test.Tasty.Hspec (Spec, describe, it, shouldBe)

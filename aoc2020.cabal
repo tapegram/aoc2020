@@ -24,6 +24,7 @@ source-repository head
 library
   exposed-modules:
       Lib
+      Sonar
   other-modules:
       Paths_aoc2020
   hs-source-dirs:
@@ -48,6 +49,9 @@ test-suite aoc2020-test
   type: exitcode-stdio-1.0
   main-is: Driver.hs
   other-modules:
+      Day1Part1Spec
+      Day1Part2Spec
+      Day1PuzzleInput
       HelloWorldSpec
       Paths_aoc2020
   hs-source-dirs:
