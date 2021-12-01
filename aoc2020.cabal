@@ -13,11 +13,9 @@ author:         Author name here
 maintainer:     example@example.com
 copyright:      2021 Author name here
 license:        BSD3
-license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
     README.md
-    ChangeLog.md
 
 source-repository head
   type: git
@@ -48,8 +46,9 @@ executable aoc2020-exe
 
 test-suite aoc2020-test
   type: exitcode-stdio-1.0
-  main-is: Spec.hs
+  main-is: Driver.hs
   other-modules:
+      HelloWorldSpec
       Paths_aoc2020
   hs-source-dirs:
       test
@@ -57,4 +56,6 @@ test-suite aoc2020-test
   build-depends:
       aoc2020
     , base >=4.7 && <5
+    , tasty
+    , tasty-hspec
   default-language: Haskell2010

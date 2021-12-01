@@ -8,7 +8,6 @@ copyright:           "2021 Author name here"
 
 extra-source-files:
 - README.md
-- ChangeLog.md
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
@@ -38,7 +37,7 @@ executables:
 
 tests:
   aoc2020-test:
-    main:                Spec.hs
+    main:                Driver.hs
     source-dirs:         test
     ghc-options:
     - -threaded
@@ -46,3 +45,5 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - aoc2020
+    - tasty
+    - tasty-hspec
