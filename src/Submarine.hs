@@ -6,6 +6,7 @@ data Command
   | Up Int
 
 data Position = Position { horizontal :: Int, depth :: Int } deriving (Show, Eq)
+data PositionWithAim = PositionWithAim { horizontal :: Int, depth :: Int, aim :: Int } deriving (Show, Eq)
 
 navigate :: [Command] -> Position
 navigate = foldl navigate' startPosition
@@ -17,3 +18,17 @@ navigate' (Position h d) (Up n)      = Position h (d - n)
 
 startPosition :: Position
 startPosition = Position 0 0
+
+navigateWithAim :: [Command] -> PositionWithAim
+navigateWithAim = foldl navigateWithAim' startPositionWithAim
+
+startPositionWithAim :: PositionWithAim
+startPositionWithAim = PositionWithAim 0 0 0
+
+navigateWithAim' :: PositionWithAim -> Command -> PositionWithAim
+navigateWithAim' (PositionWithAim h d a) (Down n) =
+  PositionWithAim h d (a + n)
+navigateWithAim' (PositionWithAim h d a) (Up n) =
+  PositionWithAim h d (a - n)
+navigateWithAim' (PositionWithAim h d a) (Forward n) =
+  PositionWithAim (h + n) (d + (a * n)) a

@@ -25,6 +25,7 @@ dependencies:
 
 library:
   source-dirs: src
+  default-extensions: DuplicateRecordFields
 
 executables:
   aoc2020-exe:
