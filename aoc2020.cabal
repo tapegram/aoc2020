@@ -23,6 +23,7 @@ source-repository head
 
 library
   exposed-modules:
+      Diagnostic
       Lib
       Sonar
       Submarine
@@ -31,7 +32,7 @@ library
   hs-source-dirs:
       src
   default-extensions:
-      DuplicateRecordFields
+      DuplicateRecordFields , BinaryLiterals
   build-depends:
       base >=4.7 && <5
     , split
@@ -62,6 +63,9 @@ test-suite aoc2020-test
       Day2Part1Spec
       Day2Part2Spec
       Day2PuzzleInput
+      Day3Part1Spec
+      Day3Part2Spec
+      Day3PuzzleInput
       HelloWorldSpec
       Paths_aoc2020
   hs-source-dirs:
