@@ -23,17 +23,6 @@ lifeSupportRating report =
 
 oxygenGeneratorRating :: DiagnosticReport -> Int
 oxygenGeneratorRating report = oxygenGeneratorRating' report 0
--- oxygenGeneratorRating report =
---   case foldl go report (zip [0..] mostCommonBits) of
---     []  -> 0
---     [x] -> toInt x
---     _   -> error "Mutiple possible matches somehow"
---   where verticals = rotate report
---         mostCommonBits = mostCommonBit <$> verticals
---         go :: DiagnosticReport -> (Index, Bit) -> DiagnosticReport
---         go [] _           = []
---         go [x] _          = [x]
---         go r (index, bit) = filterDiagnosticValues bit index r
 
 oxygenGeneratorRating' :: DiagnosticReport -> Index -> Int
 oxygenGeneratorRating' [] _ = 0
@@ -63,7 +52,6 @@ co2ScrubberRating' report index =
 type Index = Int
 filterDiagnosticValues :: Bit -> Index -> DiagnosticReport -> DiagnosticReport
 filterDiagnosticValues bit index = filter (\row -> (row !! index) == bit)
-
 
 rotate :: [[a]] -> [[a]]
 rotate []      = []
